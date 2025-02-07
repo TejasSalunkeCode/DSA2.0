@@ -4,7 +4,7 @@ public class ceil {
         int target=14;
         int ans=search(arr, target);
         System.out.println(ans);
-
+ccc
     }
     static int search(int []arr , int target){
         int start=0;
