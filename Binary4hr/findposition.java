@@ -13,8 +13,6 @@ public class findposition {
             end=(end+(end-start+1)*2);
             start=newstart;
         }
-
-        System.out.println("print hello");
          return binarysearch(arr, target, start, end);
     }
 
