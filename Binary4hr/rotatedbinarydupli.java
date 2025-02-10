@@ -40,7 +40,7 @@ public class rotatedbinarydupli {
     return -1;
 }
 
-//this will not work for duplicate value
+//
     static int findpivot(int[]arr){
         int start=0;
         int end=arr.length-1;
