@@ -1,4 +1,5 @@
-public class roatedElementPivot {
+
+public class rotatedbinarydupli {
     public static void main(String[] args) {
         int []arr={3,4,5,6,7,0,1,2};
         int target=0;
@@ -54,10 +55,10 @@ public class roatedElementPivot {
             }
             if(arr[mid]<=arr[start]){
                 end=mid-1;
-            }else{
-                start=mid+1;
             }
+            
         }
         return -1;
 }
 }
+
