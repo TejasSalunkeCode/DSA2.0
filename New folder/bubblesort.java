@@ -14,22 +14,22 @@ static int bubble(int[]arr){
         for(int j=1;j<arr.length-i;j++){
 
             
-            if(arr[j]>arr[j+1]){
-                int temp;
-                temp=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=temp;
-                // System.out.println("hello");
-            }
-
-            // if(arr[j]<arr[j-1]){
+            // if(arr[j]>arr[j+1]){
             //     int temp;
             //     temp=arr[j];
-            //     arr[j]=arr[j-1];
-            //     arr[j-1]=temp;
+            //     arr[j]=arr[j+1];
+            //     arr[j+1]=temp;
             //     // System.out.println("hello");
-            //     swapped=true;
             // }
+
+            if(arr[j]<arr[j-1]){
+                int temp;
+                temp=arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+                // System.out.println("hello");
+                swapped=true;
+            }
         }
         if(!swapped){
             System.out.println("hello");
