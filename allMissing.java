@@ -1,4 +1,4 @@
-public class MissingNo {
+public class allMissing {
     public static void main(String[] args) { 
         int []arr={0,3,1,2};
         System.out.println(Missing(arr)); 
