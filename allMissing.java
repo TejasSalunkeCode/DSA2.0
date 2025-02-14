@@ -1,6 +1,6 @@
 public class allMissing {
     public static void main(String[] args) { 
-        int []arr={0,3,1,2};
+        int []arr={3,2,3,4,1,2,7,0};
         System.out.println(Missing(arr)); 
     }
     static int Missing(int[]arr){
@@ -14,9 +14,11 @@ public class allMissing {
             }        
         }
         for (int j = 0; j < arr.length; j++) {
+            int temp2=0;
             if(arr[j]!=j){
-                return j;
+                temp2=temp2+arr[j];
             }
+            return temp2;
         }
         return arr.length;
 }
