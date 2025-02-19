@@ -3,6 +3,7 @@ public class pattern7 {
         pattern6(5);
     }
 
+    
     static void pattern6(int n) {
         for (int row = 0; row < 2 * n; row++) {
             int totalcolInRow = row > n ? 2 * n - row : row;
