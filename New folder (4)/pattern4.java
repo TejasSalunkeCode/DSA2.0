@@ -10,6 +10,7 @@ public class pattern4 {
                 // num++;
                 System.out.print(col+" ");
             }
+            
             System.out.println();
         }
     }
