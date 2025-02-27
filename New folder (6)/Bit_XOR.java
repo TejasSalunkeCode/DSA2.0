@@ -8,7 +8,6 @@ public class Bit_XOR {
      for(int n : arr){
         unique^=n;
      }   
-
-     return unique;
+   return unique;
     }
 }
