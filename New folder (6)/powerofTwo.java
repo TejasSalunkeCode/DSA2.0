@@ -4,4 +4,4 @@ public class powerofTwo {
         boolean ans=(n & (n-1))==0;
         System.out.println(ans);
     }
-}
+} 
