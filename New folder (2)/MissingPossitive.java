@@ -10,6 +10,7 @@ public class MissingPossitive {
             if(arr[i]>0 && arr[i]<arr.length && arr[i]!=arr[correct]){
                 swap(arr, i, correct);
             }else{
+              
                 i++;
             }        
         }
