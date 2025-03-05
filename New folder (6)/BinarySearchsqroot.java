@@ -23,6 +23,7 @@ public class BinarySearchsqroot {
                 e = m - 1;
             } else {
                 s = m + 1;
+                
             }
         }
         double incr = 0.1;
