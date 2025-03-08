@@ -11,6 +11,8 @@ public class LinnearTarget {
         finAllIndex(arr, target, index);
         System.out.println(list);
         System.out.println(finAllIndex(arr, target, index, new ArrayList<>()));
+        System.out.println(finAllIndex2(arr, target, 0));
+
     }
 
     static boolean findtarget(int[] arr, int target, int index) {
@@ -76,6 +78,23 @@ public class LinnearTarget {
         list.add(index);
         } 
         return finAllIndex(arr, target, index + 1,list);
+    }
+
+
+
+    //Way 3
+static ArrayList<Integer>finAllIndex2(int[] arr, int target, int index) {
+    ArrayList<Integer> list = new ArrayList<>();
+        if (index == arr.length) {
+            return list;
+        }
+        if (arr[index] == target) {
+        list.add(index);
+        } 
+        ArrayList<Integer> ansFromBelow = finAllIndex2(arr, target, index+ 1);
+
+        list.addAll(ansFromBelow);
+        return list;
     }
 
 }
