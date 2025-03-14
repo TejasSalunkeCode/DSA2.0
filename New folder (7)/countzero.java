@@ -8,6 +8,7 @@ public class countzero {
     static int helper(int n,int c){
         if(n==0){
             return c;
+            
         }
         int rem=n%10;
         if(rem==0){
