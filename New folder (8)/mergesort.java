@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class mergesort {
     public static void main(String[] args) {
-        int[]arr={5,4,3,2,1};
+        int[]arr={8,3,12,5,17};
         arr=mergesortt(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -29,11 +29,13 @@ public class mergesort {
                 i++;
             }
             else{
-                mix[k]=first[j];
+                mix[k]=second[j];
                 j++;
             }
             k++;
         }
+        //it may be possible that one of the arrays is not complete
+        //copy the remaining element
         while (i<first.length) {
             mix[k]=first[i];
             i++;
