@@ -4,6 +4,7 @@ public class factorialRecursion {
         int ans=facto(5);
         System.out.println(ans);
     }
+    
     static int facto(int n){
         if(n<=1){
             return -1;
