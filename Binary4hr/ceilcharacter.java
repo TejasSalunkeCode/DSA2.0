@@ -5,7 +5,6 @@ public class ceilcharacter {
         int ans=ceiling(arr, target);
         System.out.println(ans);
         // System.out.println();
-
     }
     static int ceiling(int []arr,int target){
         int start=0;
