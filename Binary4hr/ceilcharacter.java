@@ -2,6 +2,7 @@ public class ceilcharacter {
     public static void main(String[] args) {
         int []arr={'a','b','d','f','k','x'};
         int target='y';
+        
         int ans=ceiling(arr, target);
         System.out.println(ans);
         // System.out.println();
@@ -16,7 +17,7 @@ public class ceilcharacter {
            if(target<arr[mid]){
             end=mid-1;
            }
-           
+
            else if(target>arr[mid]){
                start=mid+1;
             }
