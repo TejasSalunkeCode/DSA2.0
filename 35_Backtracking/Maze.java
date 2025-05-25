@@ -7,6 +7,7 @@ public class Maze {
         // System.out.println(PrintList(3, 3, ""));
         // PrintPathDig(3, 3, "");
         PrintPathDigWithObs(0, 0, "");
+        // PrintPathFourDire(3, 3, "");
     }
 
     static int count(int r, int c) {
@@ -86,8 +87,29 @@ public class Maze {
         }
         
         if(c<2 || r<2){
-            PrintPathDigWithObs(r+1, c +1, p + "D--");
+            PrintPathDigWithObs(r+1, c +1, p + "D");
         }
     
+    }
+
+
+     static void PrintPathFourDire(int r, int c, String p) {
+        if (r ==1 && c == 1) {
+            System.out.println(p);
+            return;
+        }
+
+        if (r > 1) {
+            PrintPathFourDire(r - 1, c, p + "R");
+        }
+        if (c > 1) {
+            PrintPathFourDire(r, c - 1, p + "D");
+        }
+         if (r > 0) {
+            PrintPathFourDire(r-1, c, p + "U");
+        }
+        if(c>0){
+            PrintPathFourDire(r, c - 1, p + "L");
+        }
     }
 }
