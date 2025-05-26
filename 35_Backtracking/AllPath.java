@@ -17,10 +17,10 @@ public class AllPath {
         }
         maze[r][c]=false;
         if (r < maze.length-1) {
-            PrintPathFourDire(r + 1, c, p + "R",maze);
+            PrintPathFourDire(r + 1, c, p + "D",maze);
         }
         if (c <maze[0].length-1) {
-            PrintPathFourDire(r, c + 1, p + "D",maze);
+            PrintPathFourDire(r, c + 1, p + "R",maze);
         }
          if (r > 0) {
             PrintPathFourDire(r-1, c, p + "U",maze);
@@ -30,5 +30,4 @@ public class AllPath {
         }
         maze[r][c]=true;
     }
-
 }
