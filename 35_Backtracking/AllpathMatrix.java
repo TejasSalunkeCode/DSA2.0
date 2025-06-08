@@ -7,7 +7,9 @@ public class AllpathMatrix {
             {true,true,true},
             {true,true,true}
         };
-        int[][] path=new int[board.length][board[0].length];
+        // int[][] path=new int[board.length][board[0].length];
+                int[][] path=new int[board.length][board[0].length];
+
         PrintPathFourDire(0, 0, "",board,path,1);
     }
     static void PrintPathFourDire(int r, int c, String p,boolean[][]maze,int[][]path,int step) {
