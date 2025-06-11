@@ -1,6 +1,8 @@
 public class leetcode_509 {
-    class Solution {
-    public int fib(int n) {
+public static void main(String[] args) {
+    System.out.println(fib(10));
+}
+    static int fib(int n) {
         int ans=0;
         int first=0;
         int second=1;
@@ -14,4 +16,4 @@ public class leetcode_509 {
         }
     }
 }
-}
+

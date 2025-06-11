@@ -5,19 +5,19 @@ public class Human {
     String name;
     int salary;
     boolean married;
-    long population;
+    static long population;
 
-    public Human(int age,String name,int salary,boolean married){
-        this.age=age;
-        this.name=name;
-        this.salary=salary;
-        this.married=married;
-        this.population=population;
+    static void message() {
+        System.out.println("Helllo");
+        // System.out.println(this.age);
+    }
+
+    public Human(int age, String name, int salary, boolean married) {
+        this.age = age;
+        this.name = name;
+        this.salary = salary;
+        this.married = married;
+        Human.population += 1;
+        Human.message();
     }
 }
-
-
-
-
-
-
