@@ -1,3 +1,5 @@
+package _38_oop;
+
 public class Human {
     int age;
     String name;
@@ -13,3 +15,9 @@ public class Human {
         this.population=population;
     }
 }
+
+
+
+
+
+
