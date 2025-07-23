@@ -10,6 +10,7 @@ public class leetcode_747 {
 
         int[] destination = new int[nums.length];
 
+        
         // Method 1: Using loop
         for (int i = 0; i < nums.length; i++) {
             destination[i] = nums[i];
