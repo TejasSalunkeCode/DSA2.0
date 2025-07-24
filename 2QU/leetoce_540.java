@@ -1,9 +1,8 @@
-public class test {
+public class leetoce_540 {
     public static void main(String[] args) {
         int[] arr = { 1, 1, 2 };
         System.out.println(singleNonDuplicate(arr));
     }
-
     static int singleNonDuplicate(int[] nums) {
 
        if(nums.length==1){
