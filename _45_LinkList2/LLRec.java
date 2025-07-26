@@ -5,8 +5,8 @@ public class LLRec {
     private Node tail;
     private int size;
 
-    public LLRec(){
-        this.size=0;
+    public LLRec() {
+        this.size = 0;
     }
 
     public void insertFirst(int val) {
@@ -20,95 +20,37 @@ public class LLRec {
         size += 1;
     }
 
-    public void insertAtLast(int val) {
-        if (tail == null) {
-            insertFirst(val);
-            return;
-        }
-        Node node = new Node(val);
-        tail.next = node;
-        tail = node;
-        size++;
+    public void insertRec(int val, int index) {
+        head = insertRec(val, index, head);
     }
 
-    public void insert(int val, int index) {
-
+    private Node insertRec(int val, int index, Node node) {
+        System.out.println(node);
         if (index == 0) {
-            insertFirst(val);
-            return;
+            Node temp = new Node(val, node);
+            size++;
+            return temp;
         }
-
-        if (index == size) {
-            insertAtLast(val);
-            return;
-        }
-
-        Node temp = head;
-        for (int i = 1; i < index; i++) {
-            temp = temp.next;
-        }
-        Node node = new Node(val, temp.next);
-        temp.next = node;
-        size++;
-    }
-
-    public int delete() {
-        int val = head.value;
-        head = head.next;
-        if (head == null) {
-            tail = null;
-        }
-        size--;
-        return val;
-    }
-
-    public Node get(int index) {
-        Node node = head;
-        for (int i = 1; i < index; i++) {
-            node = node.next;
-        }
+        node.next = insertRec(val, index-1, node.next);
         return node;
     }
 
-    public Node find(int value) {
-        Node node = head;
-        while (node != null) {
-            if (node.value == value) {
-                return node;
-            }
-            node = node.next;
+   
+   public void duplicate(){
+    Node node =head;
+
+    while (node.next !=null) {
+        if(node.value==node.next.value){
+            node.next=node.next.next;
+            size--;
+        }else{
+            node=node.next;
         }
-        return null;
     }
-
-    public int deleteLast() {
-        if (size <= 1) {
-            return delete();
-        }
-        Node secondLastc = get(size - 1);
-        int val = tail.value;
-        tail = secondLastc;
-        tail.next = null;
-        return val;
-    }
-
-    public int deleteRandom(int index) {
-        if (index == 0) {
-            return delete();
-        }
-        if (index == size - 1) {
-            return deleteLast();
-        }
-
-        Node prev = get(index - 1);
-        int val = prev.next.value;
-
-        prev.next = prev.next.next;
-
-        return val;
-
-    }
-
+    tail=node;
+    tail.next=null;
+   }
+   
     public void display() {
         Node temp = head;
         while (temp != null) {
