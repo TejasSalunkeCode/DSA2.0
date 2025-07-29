@@ -78,7 +78,7 @@ public class SLLQ {
         }
         size--;
         return val;
-    }
+    } 
 
     public Node get(int index) {
         Node node = head;
