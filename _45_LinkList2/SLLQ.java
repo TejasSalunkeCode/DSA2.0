@@ -2,6 +2,8 @@ package _45_LinkList2;
 
 import java.util.Stack;
 
+import Interface.breake;
+
 public class SLLQ {
 
     private Node head;
@@ -24,6 +26,63 @@ public class SLLQ {
             }
         }
         return false;
+    }
+
+    public int lengthCycle(Node head){
+        Node fast = head;
+        Node slow = head;
+
+        while (fast!=null && fast.next !=null) {
+            fast=fast.next.next;
+            slow=slow.next;
+
+            if(fast==slow){
+                Node temp = slow;
+                int length=0;
+                do{
+                    temp=temp.next;
+                    length++;
+                }while(temp!=slow);
+                return length;
+            }
+        }
+        return 0;
+    }
+
+
+    public Node detectCycle(Node head) {
+        int length=0;
+
+        Node fast = head;
+        Node slow = head;
+
+        while (fast!=null && fast.next!=null) {
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                length = lengthCycle(slow);
+                break;
+            }
+        }
+        if(length==0){
+            return null;
+        }
+
+        //Find the Start Node
+        Node f=head;
+        Node s=head;
+
+        while (length > 0) {
+            s=s.next;
+            length--;
+        }
+
+        //keep moving both forward and they will meet at cycle start
+        while (f!=s) {
+            f=f.next;
+            s=s.next;
+        }
+        return s;
     }
 
 
