@@ -9,7 +9,7 @@ public class main {
         s1.add(65);
         s1.add(445);
         s1.add(405);
-        System.out.println(s1.peek());
+        System.out.println(s1.peek()); 
         System.out.println(s1.remove());
         System.out.println(s1.peek());
     }
@@ -18,7 +18,6 @@ public class main {
 class QueueusingStack {
     private Stack<Integer> first;
     private Stack<Integer> second;
-
     public QueueusingStack() {
         first = new Stack<>();
         second = new Stack<>();
