@@ -1,5 +1,7 @@
 package _45_LinkList2;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Stack;
 
 import Interface.breake;
@@ -11,80 +13,116 @@ public class SLLQ {
     private int size;
 
     public SLLQ() {
-        
+
         this.size = 0;
+    }
+
+    // Q.148
+
+    public static Node sortList(Node head) {
+        if (head == null || head.next == null)
+            return head;
+        Node a = head;
+        Node b = head.next;
+        while (b.next != null) {
+            if (a.value < b.value) {
+                a = a.next;
+                b = b.next;
+            }
+            if (a.value > b.value) {
+                int temp = a.value;
+                a.value = b.value;
+                b.value = temp;
+            }
+        }
+        Node tempNode = head;
+        while (tempNode != null) {
+            System.out.print(tempNode.value + " -> ");
+            tempNode = tempNode.next;
+        }
+        System.out.println("nultttl");
+        return head;
+    }
+
+    // Q.876
+    public Node middleNode(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
     }
 
     public boolean hasCycle(Node head) {
         Node fast = head;
         Node slow = head;
-        while(fast!=null && fast.next!=null){  
-            fast=fast.next.next;
-            slow=slow.next;
-            if(fast==slow){ 
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
                 return true;
             }
         }
         return false;
     }
 
-    public int lengthCycle(Node head){
+    public int lengthCycle(Node head) {
         Node fast = head;
         Node slow = head;
 
-        while (fast!=null && fast.next !=null) {
-            fast=fast.next.next;
-            slow=slow.next;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
 
-            if(fast==slow){
+            if (fast == slow) {
                 Node temp = slow;
-                int length=0;
-                do{
-                    temp=temp.next;
+                int length = 0;
+                do {
+                    temp = temp.next;
                     length++;
-                }while(temp!=slow);
+                } while (temp != slow);
                 return length;
             }
         }
         return 0;
     }
 
-
     public Node detectCycle(Node head) {
-        int length=0;
+        int length = 0;
 
         Node fast = head;
         Node slow = head;
 
-        while (fast!=null && fast.next!=null) {
-            fast=fast.next.next;
-            slow=slow.next;
-            if(fast==slow){
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
                 length = lengthCycle(slow);
                 break;
             }
         }
-        if(length==0){
+        if (length == 0) {
             return null;
         }
 
-        //Find the Start Node
-        Node f=head;
-        Node s=head;
+        // Find the Start Node
+        Node f = head;
+        Node s = head;
 
         while (length > 0) {
-            s=s.next;
+            s = s.next;
             length--;
         }
 
-        //keep moving both forward and they will meet at cycle start
-        while (f!=s) {
-            f=f.next;
-            s=s.next;
+        // keep moving both forward and they will meet at cycle start
+        while (f != s) {
+            f = f.next;
+            s = s.next;
         }
         return s;
     }
-
 
     public void insertFirst(int val) {
         Node node = new Node(val);
@@ -137,7 +175,7 @@ public class SLLQ {
         }
         size--;
         return val;
-    } 
+    }
 
     public Node get(int index) {
         Node node = head;
@@ -240,20 +278,21 @@ public class SLLQ {
     public static void main(String[] args) {
         SLLQ first = new SLLQ();
         SLLQ second = new SLLQ();
+        // int []head={4,2,1,3};
+        // first.insertAtLast(1);
+        // first.insertAtLast(2);
+        // first.insertAtLast(3);
+        // first.insertAtLast(4);
+        // first.middleNode(head);
+        // second.insertAtLast(1);
+        // second.insertAtLast(2);
+        // second.insertAtLast(13);
+        // second.insertAtLast(17);
 
-        first.insertAtLast(1);
-        first.insertAtLast(2);
-        first.insertAtLast(3);
-        first.insertAtLast(4);
-
-        second.insertAtLast(1);
-        second.insertAtLast(2);
-        second.insertAtLast(13);
-        second.insertAtLast(17);
-
+        first.head = SLLQ.sortList(first.head);
         SLLQ ans = SLLQ.merge(first, second);
 
-        ans.display();
+        // ans.display();
 
     }
 
