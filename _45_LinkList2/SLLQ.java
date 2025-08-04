@@ -17,32 +17,53 @@ public class SLLQ {
         this.size = 0;
     }
 
-    // Q.148
-
-    public static Node sortList(Node head) {
-        if (head == null || head.next == null)
-            return head;
-        Node a = head;
-        Node b = head.next;
-        while (b.next != null) {
-            if (a.value < b.value) {
-                a = a.next;
-                b = b.next;
-            }
-            if (a.value > b.value) {
-                int temp = a.value;
-                a.value = b.value;
-                b.value = temp;
-            }
+    //reverse linklist with recursion
+    private void reverse(Node node){
+        if(node==tail){
+            head=tail;
+            return;
         }
-        Node tempNode = head;
-        while (tempNode != null) {
-            System.out.print(tempNode.value + " -> ");
-            tempNode = tempNode.next;
-        }
-        System.out.println("nultttl");
-        return head;
+        reverse(node.next);
+        tail.next=null;
     }
+
+    // Q.148
+    public void bubblesort(){
+        bubblesort(size-1,0);
+    }
+
+    private void bubblesort(int row,int col){
+        if(row==0){
+            return;
+        }
+        if(col<row){
+            Node first = get(col);
+            Node second = get(col+1);
+
+            if(first.value > second.value){
+                if(first==head){
+                    head=second;
+                    first.next=second.next;
+                    second.next=first;
+                }else if(second==tail){
+                    Node prev = get(col-1);
+                    prev.next=second;
+                    tail=first;
+                    first.next=null;
+                    second.next=tail;
+                }else{
+                    Node prev = get(col-1);
+                    prev.next=second;
+                    first.next=second.next;
+                    second.next=first;
+                }
+            }
+            bubblesort(row,col+1);
+        }else{
+            bubblesort(row-1,0);
+        }
+    }
+   
 
     // Q.876
     public Node middleNode(Node head) {
@@ -179,7 +200,7 @@ public class SLLQ {
 
     public Node get(int index) {
         Node node = head;
-        for (int i = 1; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             node = node.next;
         }
         return node;
@@ -289,8 +310,15 @@ public class SLLQ {
         // second.insertAtLast(13);
         // second.insertAtLast(17);
 
-        first.head = SLLQ.sortList(first.head);
-        SLLQ ans = SLLQ.merge(first, second);
+        for (int i = 7; i > 0; i--) {
+            first.insertAtLast(i);
+        }
+        first.display();
+        first.bubblesort();
+        first.display();
+
+        // first.head = SLLQ.sortList(first.head);
+        // SLLQ ans = SLLQ.merge(first, second);
 
         // ans.display();
 
