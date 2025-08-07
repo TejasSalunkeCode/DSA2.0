@@ -9,7 +9,6 @@ public class LL {
         this.size=0;
     }
 
-
     public void insertFirst(int val){
         Node node = new Node(val);
         node.next=head;
@@ -29,7 +28,7 @@ public class LL {
         Node node = new Node(val);
         tail.next=node;
         tail=node;
-        size++;
+        size++; 
     }
 
     public void insert(int val,int index){
