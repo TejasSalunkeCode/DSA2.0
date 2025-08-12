@@ -17,7 +17,7 @@ public class BinaryTree {
             this.value = value;
         }
     }
-     
+
     private Node root;
 
     // insert elements
