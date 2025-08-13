@@ -13,7 +13,6 @@ public class test23 {
         int[] arr = new int[5];
         int ans=0,finals=0;
 
-
         int sum = 1;
         while (sum <= n) {
             System.out.println(sum);
