@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 public class leetcode_387 {
-
     public static void main(String[] args) {
         String s = "loveleetcode";
         System.out.println(firstUniqChar(s));
