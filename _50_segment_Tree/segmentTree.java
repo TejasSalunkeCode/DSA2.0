@@ -118,7 +118,7 @@ package _50_segment_Tree;
 
 //     }
 // }
-
+ 
 
 class segmentTree {
     public static void main(String[] args) {
