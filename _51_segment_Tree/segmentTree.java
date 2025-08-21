@@ -1,4 +1,4 @@
-package _50_segment_Tree;
+package _51_segment_Tree;
 
 // public class segmentTree {
 //     public static void main(String[] args) {
