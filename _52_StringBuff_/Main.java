@@ -28,7 +28,8 @@ public class Main {
         System.out.println(sb);
 
         String str = sb.toString();
-        System.out.println(str);
+        
+        System.out.println(str); 
 
         int n=20;
         String name = RandomString.generate(n);
