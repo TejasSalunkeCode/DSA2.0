@@ -4,7 +4,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Stack;
 
-import Interface.breake;
 
 public class SLLQ {
 
@@ -17,6 +16,46 @@ public class SLLQ {
         this.size = 0;
     }
 
+    //linklist palindrome
+    public boolean isPalindrome(Node head){
+        Node mid=middleNode(head);
+        Node headSecond=reverseList(mid);
+        Node reverseHead=headSecond;
+
+        while (head!=null && headSecond!=null) {
+            if(head.value !=headSecond.value){
+                break;
+            }
+            head=head.next;
+            headSecond=headSecond.next;
+        }
+        reverseList(reverseHead);
+
+        return head==null || headSecond==null;
+
+    }
+
+    public Node reverseList(Node head){
+        if(head==null){
+            return head;
+        }
+        Node prev=null;
+        Node present=head;
+        Node next=present.next;
+
+        while (present!=null) {
+            present.next=prev;
+            prev=present;
+            present=next;
+            if(next!=null){
+                next=next.next;
+            }
+        }
+        return prev;
+    }
+
+
+
     //reverse linklist with recursion
     private void reverse(Node node){
         if(node==tail){
@@ -26,6 +65,7 @@ public class SLLQ {
         reverse(node.next);
         tail.next=null;
     }
+
 
     // Q.148
     public void bubblesort(){
