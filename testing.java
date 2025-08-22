@@ -1,34 +1,30 @@
-import Interface.breake;
+import java.util.Arrays;
+
+// import Interface.breake;
 
 public class testing {
     public static void main(String[] args) {
-        int num = 100;
-        // int[] baskets = { 6, 4, 7 };
-        System.out.println(findPrime(num));
+        String str = "zxyzxyz";
+        System.out.println(lengthOfLongestSubstring(str));
     }
 
-    static int findPrime(int num) {
-        int ans = 1;
-        System.out.println();
-        int count=0;
-        for (int i = 3; i <= num; i++) {
-            for (int j = 2; j <= num; j++) {
-                if(i%j==0 && i!=j){
-                    // System.out.println(i);
-                    System.out.println(i);
-                    count++;
-                    break;
+    static int lengthOfLongestSubstring(String s) {
 
-                }
-                // break;
-                // System.out.println();
+        // char[]ch=s.toCharArray();
+        // System.out.println(Arrays.toString(ch));
+        int count=0;
+        String str="";
+
+        for (int i = 1; i < s.length(); i++) {
+            //  if(ch[i]!=ch[0]) break;
+            if(s.charAt(i)!=s.charAt(0)) {
+                count++;
+            }else{
+                break;
             }
-            // System.out.println(i);
         }
-        count++;
-        
-        System.out.println("hel :"+count);
-        System.out.println("hello");
-        return num-count;
+
+        return count+1;
     }
 }
+
