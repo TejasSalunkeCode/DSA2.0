@@ -1,10 +1,5 @@
 package _45_LinkList2;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Stack;
-
-
 public class SLLQ {
 
     private Node head;
@@ -116,6 +111,7 @@ public class SLLQ {
         return slow;
     }
 
+
     public boolean hasCycle(Node head) {
         Node fast = head;
         Node slow = head;
@@ -148,6 +144,51 @@ public class SLLQ {
             }
         }
         return 0;
+    }
+
+    public void reorderList(Node head){
+        if(head==null || head.next==null){
+            return;
+        }
+        Node mid=middleNode(head);
+
+        Node hs=reverseList(mid);
+        Node hf=head;
+
+        //rearrange
+        while (hf!=null && hs!=null) {
+            Node temp=hf.next;
+            hf.next=hs;
+            hf=temp;
+
+            temp=hs.next;
+            hs.next=hf;
+            hs=temp;
+        }
+        if(hf!=null){
+            hf.next=null;
+        }
+    }
+    public Node rotateRight(Node head, int k) {
+        if(k<=0 || head==null || head.next==null){
+            return head;
+        }
+        Node last=head;
+        int length=1;
+        while (last.next!=null) {
+            last=last.next;
+            length++;
+        }
+        last.next=head;
+        int rotations=k%length;
+        int skip=length-rotations;;
+        Node newLast=head;
+        for (int i = 0; i < skip-1; i++) {
+            newLast=newLast.next;
+        }
+        head=newLast.next;
+        newLast.next=null;
+        return head;
     }
 
     public Node detectCycle(Node head) {
