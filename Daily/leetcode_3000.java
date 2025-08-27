@@ -5,7 +5,7 @@ public class leetcode_3000 {
     }
 
     static int areaOfMaxDiagonal(int[][] dimensions) {
-        
+
         int maxDiagonalSq = 0; 
         int maxArea = 0;
 
@@ -19,8 +19,6 @@ public class leetcode_3000 {
                 maxArea = area;
             }
         }
-
-
         return maxArea;
     }
 }
