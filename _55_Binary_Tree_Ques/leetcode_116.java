@@ -5,7 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class leetcode_107 {
+import _49_Tree.BST.Node;
+
+public class leetcode_116 {
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -13,14 +16,14 @@ public class leetcode_107 {
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
         root.right.right = new TreeNode(6);
-        List<List<Integer>> ans = levelOrder(root);
-        System.out.println(ans);
+
     }
- 
+
     public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
+        TreeNode next;
 
         TreeNode() {
         }
@@ -29,27 +32,53 @@ public class leetcode_107 {
             this.val = val;
         }
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
+        TreeNode(int val, TreeNode left, TreeNode right, TreeNode next) {
             this.val = val;
             this.left = left;
             this.right = right;
+            this.next = next;
         }
     }
 
-    static List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+    static TreeNode levelOrder(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode leftMost = root;
+
+        while (leftMost.left != null) {
+            TreeNode current = leftMost;
+            while (current != null) {
+                current.left.next = current.right;
+                if (current.next != null) {
+                    current.right.next = current.next.left;
+                }
+                current = current.next;
+            }
+            leftMost = leftMost.left;
+        }
+        return root;
+
+    }
+
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
+
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            List<Integer> currentlevel = new ArrayList<>(levelSize);
+
             for (int i = 0; i < levelSize; i++) {
                 TreeNode currentNode = queue.poll();
-                currentlevel.add(currentNode.val);
+                if (i == levelSize - 1) {
+                    
+                    result.add(currentNode.val);
+                }
                 if (currentNode.left != null) {
                     queue.offer(currentNode.left);
                 }
@@ -58,7 +87,6 @@ public class leetcode_107 {
                 }
 
             }
-            result.add(0, currentlevel);
         }
         return result;
     }
