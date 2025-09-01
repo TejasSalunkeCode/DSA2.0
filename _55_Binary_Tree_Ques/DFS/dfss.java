@@ -1,0 +1,96 @@
+package _55_Binary_Tree_Ques.DFS;
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+import _47_stack_Queue_Q.reqPar;
+
+public class dfss {
+    int diameter=0;
+
+     public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    public int diamerterOfBinaryTree(TreeNode root){
+        
+        height(root);
+        return diameter-1;
+    }
+    int height(TreeNode node){
+        if(node==null){
+            return 0;
+        }
+        int leftHeight=height(node.left);
+        int RightHeight=height(node.right);
+
+        int dia=leftHeight+RightHeight+1;
+        diameter=Math.max(diameter, dia);
+
+        return Math.max(leftHeight, RightHeight)+1;
+    }
+
+
+    // Q.226
+    public TreeNode invertTree(TreeNode root){
+        if(root==null){
+            return null;
+        }
+        TreeNode left=invertTree(root.left);
+        TreeNode right=invertTree(root.right);
+
+        root.left=right;
+        root.right=left;
+
+        return root;
+    }
+
+    // Q.104
+    public int maxDepth(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int left=maxDepth(root.left);
+        int right=maxDepth(root.right);
+
+        int ans=Math.max(left, right)+1;
+
+        return ans;
+
+    }
+
+
+    public void flatten(TreeNode root){
+     TreeNode current=root;
+        while (current!=null) {
+            if(current.left!=null){
+                TreeNode temp=current.left;
+                while (temp.right!=null) {
+                    temp=temp.right;
+                }
+                temp.right=current.right;
+                current.right=current.left;
+                current.left=null;
+            }
+            current=current.right;
+        }
+    }
+
+}
