@@ -69,13 +69,14 @@ public class dfss {
         }
         int left=maxDepth(root.left);
         int right=maxDepth(root.right);
-
         int ans=Math.max(left, right)+1;
 
         return ans;
 
     }
 
+
+    
     public void flatten(TreeNode root){
      TreeNode current=root;
         while (current!=null) {
