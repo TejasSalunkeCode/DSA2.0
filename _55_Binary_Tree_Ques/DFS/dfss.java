@@ -76,10 +76,6 @@ public class dfss {
 
     }
 
-
-
-    
-
     public void flatten(TreeNode root){
      TreeNode current=root;
         while (current!=null) {
