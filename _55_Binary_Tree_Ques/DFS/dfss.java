@@ -114,4 +114,22 @@ public class dfss {
         return left && right;
     }
 
+    // Q.236
+    public TreeNode lowestCommonAncesstor(TreeNode root,TreeNode p,TreeNode q){
+        if(root==null){
+            return null;
+        }
+        if(root == p || root==q){
+            return root;
+        }
+        TreeNode left=lowestCommonAncesstor(root.left, p, q);
+        TreeNode right=lowestCommonAncesstor(root.right, p, q);
+
+        if(left!=null && right!=null){
+            return root;
+        }
+
+        return left==null ? right : left;
+    }
+
 }
