@@ -1,4 +1,5 @@
-import java.util.Arrays;
+qimport java.util.Arrays;
+
 
 public class quicksortt {
     public static void main(String[] args) {
