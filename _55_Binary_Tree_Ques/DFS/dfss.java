@@ -133,4 +133,26 @@ public class dfss {
         return left==null ? right : left;
     }
 
+    //230
+    int count=0;
+    public int KthSamllest(TreeNode root,int k){
+        return helper2(root,k).val;
+    }
+    public TreeNode helper2(TreeNode root,int k){
+        if(root==null){
+            return null;
+        }
+        TreeNode left =helper2(root.left, k);
+        if(left!=null){
+            return left;
+        }
+        count++;
+        if(count==k){
+            return root;
+        }
+        return helper2(root.right, k);
+    }
+
 }
+
+
