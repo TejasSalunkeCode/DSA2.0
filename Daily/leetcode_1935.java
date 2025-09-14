@@ -12,6 +12,7 @@ public class leetcode_1935 {
             broken[c - 'a'] = true;
         }
 
+        
         int count = 0;
         for (String word : words) {
             boolean canType = true;
