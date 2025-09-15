@@ -17,6 +17,8 @@ public class leetcode_3541 {
             if (freq[i] > 0) {
                 char c = (char) (i + 'a');
                 if (isVowel(c)) {
+
+                    
                     maxVowel = Math.max(maxVowel, freq[i]);
                 } else {
                     maxConsonant = Math.max(maxConsonant, freq[i]);
