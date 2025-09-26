@@ -5,7 +5,6 @@ public class leetcode_812 {
     }
 
     static double largestTriangleArea(int[][] points) {
-
         double maxArea=0;
      for (int i = 0; i < points.length; i++) {
         for (int j = i+1; j < points.length; j++) {
