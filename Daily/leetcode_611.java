@@ -6,7 +6,7 @@ public class leetcode_611 {
         triangleNumber(nums);
         System.out.println(Arrays.toString(nums));
     }
-
+    
     static int triangleNumber(int[] nums) {
         Arrays.sort(nums);
         System.out.println(nums);
