@@ -141,47 +141,105 @@ public class LL {
             }
         }
         if (k == 1) {
-            return new Node(el,head);
+            return new Node(el, head);
         }
-        int cnt=0;
-        Node temp=head;
-        while (temp!=null) {
+        int cnt = 0;
+        Node temp = head;
+        while (temp != null) {
             cnt++;
-            if(cnt==(k-1)){
-                Node x=new Node(el,temp.next);
-                temp.next=x;
+            if (cnt == (k - 1)) {
+                Node x = new Node(el, temp.next);
+                temp.next = x;
                 break;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
         return head;
     }
 
-
-        private static Node insertAtPostionUsingVal(Node head, int el, int val) {
+    private static Node insertAtPostionUsingVal(Node head, int el, int val) {
         if (head == null) {
             return null;
         }
         if (val == head.val) {
-            return new Node(el,head);
+            return new Node(el, head);
         }
-        int cnt=0;
-        Node temp=head;
-        while (temp!=null) {
-            if(temp.next.val==val){
-                Node x=new Node(el,temp.next);
-                temp.next=x;
+        int cnt = 0;
+        Node temp = head;
+        while (temp != null) {
+            if (temp.next.val == val) {
+                Node x = new Node(el, temp.next);
+                temp.next = x;
                 break;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
         return head;
     }
 
+    // Leetcode 19
+    static Node removeNthFromEnd(Node head, int n) {
+        if (head == null) {
+            return null;
+        }
+        if (n == 0) {
+            return head;
+        }
+        Node temp = head;
+        int count = 0;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        System.out.println(count);
+        int k = count - n + 1;
+        Node traverse = head;
+        Node prev = null;
 
+        int loopCount = 0;
+
+        while (traverse != null) {
+            loopCount++;
+            if (k == loopCount) {
+                if (prev.next != null) {
+                    prev.next = prev.next.next;
+                    break;
+                }
+            }
+            prev = traverse;
+            traverse = traverse.next;
+        }
+
+        System.out.println(k + "hello");
+        return head;
+
+    }
+
+    // leetcode 203
+    static Node removeElements(Node head, int val) {
+        if (head == null) {
+            return null;
+        }
+        Node temp = head;
+        // Node prev=null;
+
+        while (temp != null) {
+            if (temp.val == val) {
+                if(temp.next.next!=null){
+                    temp = temp.next.next;
+                }
+                continue;
+            }
+            // temp=prev;
+            if (temp.next != null) {
+                temp = temp.next;
+            }
+        }
+        return head;
+    }
 
     public static void main(String[] args) {
-        int[] arr = { 12, 45, 32, 78, 99 };
+        int[] arr = { 6, 2, 6, 3, 4, 5, 6 };
         Node head = convertArr2LL(arr);
         // System.out.println(head.val);
 
@@ -190,7 +248,7 @@ public class LL {
         // printt(head);
         // head=removeHead(head);
         // printt(head);
-        printt(head);
+        // printt(head);
         // head = removeTail(head);
         // printt(head);
 
@@ -204,7 +262,11 @@ public class LL {
 
         // head=insertAtPostion(head, 177, 3);
 
-        head=insertAtPostionUsingVal(head, 201, 32);
+        // head=insertAtPostionUsingVal(head, 201, 32);
+
+        // head = removeNthFromEnd(head, 2);
+
+        head = removeElements(head, 6);
         printt(head);
 
     }
