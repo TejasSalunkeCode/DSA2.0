@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class LL {
 
     private static class Node { // 🔹 made static
@@ -53,6 +55,7 @@ public class LL {
         }
         System.out.println();
     }
+
 
     private static Node removeHead(Node head) {
         if (head == null)
@@ -225,7 +228,7 @@ public class LL {
 
         while (temp != null) {
             if (temp.val == val) {
-                if(temp.next.next!=null){
+                if (temp.next.next != null) {
                     temp = temp.next.next;
                 }
                 continue;
@@ -238,8 +241,55 @@ public class LL {
         return head;
     }
 
+    public static Node reverseList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+        Stack<Integer> stack = new Stack<>();
+        Node curr = head;
+        while (curr != null) {
+            stack.push(curr.val);
+            curr = curr.next;
+        }
+        System.out.println(stack.peek());
+        head.val = stack.peek();
+        Node temp = head;
+        stack.pop();
+        while (stack.size() != 0) {
+            temp.val = stack.peek();
+            stack.pop();
+            temp = temp.next;
+        }
+        return head;
+    }
+
+    public static Node deleteDuplicates(Node head) {
+        Node dummy = new Node(0, head);
+        Node prev = dummy;
+        Node curr = head;
+
+        while (curr != null) {
+            if (curr.next != null && curr.val == curr.next.val) {
+                while (curr.next != null && curr.val == curr.next.val) {
+                    curr = curr.next;
+                }
+                prev.next = curr.next;
+            } else {
+                prev = prev.next;
+            }
+            curr = curr.next;
+        }
+
+        return dummy.next;
+    }
+
+
+
     public static void main(String[] args) {
-        int[] arr = { 6, 2, 6, 3, 4, 5, 6 };
+        int[] arr = { 1, 2, 2, 4, 5 };
         Node head = convertArr2LL(arr);
         // System.out.println(head.val);
 
@@ -266,7 +316,11 @@ public class LL {
 
         // head = removeNthFromEnd(head, 2);
 
-        head = removeElements(head, 6);
+        // head = removeElements(head, 6);
+
+        // head = reverseList(head);
+
+        head=deleteDuplicates(head);
         printt(head);
 
     }
