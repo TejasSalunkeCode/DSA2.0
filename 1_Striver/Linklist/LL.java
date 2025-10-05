@@ -5,7 +5,6 @@ public class LL {
     private static class Node { // 🔹 made static
         int val;
         Node next;
-
         public Node(int val) {
             this.val = val;
         }
