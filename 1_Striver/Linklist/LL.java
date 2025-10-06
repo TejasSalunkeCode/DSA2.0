@@ -5,6 +5,7 @@ public class LL {
     private static class Node { // 🔹 made static
         int val;
         Node next;
+
         public Node(int val) {
             this.val = val;
         }
@@ -54,7 +55,6 @@ public class LL {
         }
         System.out.println();
     }
-
 
     private static Node removeHead(Node head) {
         if (head == null)
@@ -285,10 +285,29 @@ public class LL {
         return dummy.next;
     }
 
+    // odd even linklist
+    public static Node oddEvenList(Node head) {
+        if (head == null || head.next == null)
+            return head;
 
+        Node odd = head;
+        Node even = head.next;
+        Node evenHead = even; // Save start of even list
+
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+
+            even.next = odd.next;
+            even = even.next;
+        }
+
+        odd.next = evenHead; // Connect odd list to even list
+        return head;
+    }
 
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 2, 4, 5 };
+        int[] arr = { 2,3,1,4,5,6 };
         Node head = convertArr2LL(arr);
         // System.out.println(head.val);
 
@@ -319,7 +338,8 @@ public class LL {
 
         // head = reverseList(head);
 
-        head=deleteDuplicates(head);
+        // head = deleteDuplicates(head);
+        head=oddEvenList(head);
         printt(head);
 
     }
