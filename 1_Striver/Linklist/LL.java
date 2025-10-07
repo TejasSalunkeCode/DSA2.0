@@ -295,10 +295,10 @@ public class LL {
         Node evenHead = even; // Save start of even list
 
         while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
+            odd.next = odd.next.next;
+            even.next = even.next.next;
 
-            even.next = odd.next;
+            odd = odd.next;
             even = even.next;
         }
 
@@ -306,8 +306,48 @@ public class LL {
         return head;
     }
 
+    public static Node allZerosOneTwos(Node head){
+        int count0=0,count1=0,count2=0;
+        Node temp=head;
+        while (temp!=null) {
+            if(temp.val==0){
+                count0++;
+            }else if(temp.val==1){
+                count1++;
+            }else{
+                count2++;
+            }
+            temp=temp.next;
+        }
+        head.val=0;
+        Node temp2=head;
+
+        System.out.println(count0+"=c0");
+        System.out.println(count1+"=c1");
+        System.out.println(count2+"=c2");
+        count0--;
+        while (temp2!=null && temp2.next!=null) {
+            if(count0>0){
+                temp2.next.val=0;
+                count0--;
+            }else if(count1>0){
+                temp2.next.val=1;
+                count1--;
+            }else{
+                temp2.next.val=2;
+                count2--;
+            }
+            if(temp2.next!=null){
+                temp2=temp2.next;
+            }
+        }
+        return head;
+    }
+    
+
     public static void main(String[] args) {
-        int[] arr = { 2,3,1,4,5,6 };
+        // int[] arr = { 2,3,1,4,5,6 };
+        int[] arr = { 1,0,2,0,0,2,1,2,0,1 };
         Node head = convertArr2LL(arr);
         // System.out.println(head.val);
 
@@ -339,7 +379,9 @@ public class LL {
         // head = reverseList(head);
 
         // head = deleteDuplicates(head);
-        head=oddEvenList(head);
+        // head=oddEvenList(head);
+
+        head=allZerosOneTwos(head);
         printt(head);
 
     }
