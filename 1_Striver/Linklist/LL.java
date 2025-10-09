@@ -306,49 +306,163 @@ public class LL {
         return head;
     }
 
-    public static Node allZerosOneTwos(Node head){
-        int count0=0,count1=0,count2=0;
-        Node temp=head;
-        while (temp!=null) {
-            if(temp.val==0){
+    public static Node allZerosOneTwos(Node head) {
+        int count0 = 0, count1 = 0, count2 = 0;
+        Node temp = head;
+        while (temp != null) {
+            if (temp.val == 0) {
                 count0++;
-            }else if(temp.val==1){
+            } else if (temp.val == 1) {
                 count1++;
-            }else{
+            } else {
                 count2++;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
-        head.val=0;
-        Node temp2=head;
+        head.val = 0;
+        Node temp2 = head;
 
-        System.out.println(count0+"=c0");
-        System.out.println(count1+"=c1");
-        System.out.println(count2+"=c2");
+        System.out.println(count0 + "=c0");
+        System.out.println(count1 + "=c1");
+        System.out.println(count2 + "=c2");
         count0--;
-        while (temp2!=null && temp2.next!=null) {
-            if(count0>0){
-                temp2.next.val=0;
+        while (temp2 != null && temp2.next != null) {
+            if (count0 > 0) {
+                temp2.next.val = 0;
                 count0--;
-            }else if(count1>0){
-                temp2.next.val=1;
+            } else if (count1 > 0) {
+                temp2.next.val = 1;
                 count1--;
-            }else{
-                temp2.next.val=2;
+            } else {
+                temp2.next.val = 2;
                 count2--;
             }
-            if(temp2.next!=null){
-                temp2=temp2.next;
+            if (temp2.next != null) {
+                temp2 = temp2.next;
             }
         }
         return head;
     }
-    
+
+    // reversed linklist
+    public static Node reverseLinkListRecu(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node newHead = reverseLinkListRecu(head.next);
+        Node front = head.next;
+        front.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+    public static boolean isPalindrome(Node head) {
+        Node temp = head;
+        Stack<Integer> s1 = new Stack<>();
+        if (head == null) {
+            return true;
+        }
+        while (temp != null) {
+            s1.push(temp.val);
+            temp = temp.next;
+        }
+        temp = head;
+
+        while (temp != null) {
+            if (temp.val == s1.pop()) {
+                temp = temp.next;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 445
+    public static Node addTwoNumbers(Node l1, Node l2) {
+        Node temp = l1;
+        Node temp2 = l2;
+        int num1 = 0;
+        int num2 = 0;
+        while (temp != null) {
+            num1 = num1 * 10 + temp.val;
+            temp = temp.next;
+        }
+        while (temp2 != null) {
+            num2 = num2 * 10 + temp2.val;
+            temp2 = temp2.next;
+        }
+        int ans = num1 + num2;
+        System.out.println(num1);
+        System.out.println(num2);
+        System.out.println(ans);
+
+        if (ans == 0)
+            return new Node(0);
+
+        // Convert to string to easily extract digits
+        String s = String.valueOf(ans);
+        Node head = new Node(s.charAt(0) - '0');
+        Node current = head;
+
+        for (int i = 1; i < s.length(); i++) {
+            current.next = new Node(s.charAt(i) - '0');
+            current = current.next;
+        }
+        return head;
+    }
+
+    public static int addHelper(Node temp) {
+        if (temp == null) {
+            return 1;
+        }
+        int carry = addHelper(temp.next);
+        temp.val += carry;
+        if (temp.val < 10) {
+            return 0;
+        }
+        temp.val = 0;
+        return 1;
+    }
+
+    public static Node addOne(Node head) {
+        int carry = addHelper(head);
+        if (carry == 1) {
+            Node newNode = new Node(1);
+            newNode.next = head;
+            head = newNode;
+        }
+        return head;
+    }
+
+    public static Node deleteNodeFromLL(Node head, int nodeVal) {
+        Node temp = head;
+        if(head.next==null && head.val==nodeVal){
+            return null;
+        }
+        if(head.val==nodeVal){
+            return head.next;
+        }
+        while (temp != null) {
+            if (temp.next.val == nodeVal && temp.next.next == null) {
+                temp.next =null;
+                return head;
+            }
+            if (temp.next.val == nodeVal && temp.next.next != null) {
+                temp.next = temp.next.next;
+                return head;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
 
     public static void main(String[] args) {
-        // int[] arr = { 2,3,1,4,5,6 };
-        int[] arr = { 1,0,2,0,0,2,1,2,0,1 };
+        int[] arr = { 3, 5, 2, 7, 8 };
+        int[] arr2 = { 4, 5, 6 };
+        // int[] arr = { 1,0,2,0,0,2,1,2,0,1 };
         Node head = convertArr2LL(arr);
+        Node head2 = convertArr2LL(arr2);
         // System.out.println(head.val);
 
         // System.out.println(lenghtOfLL(head));
@@ -381,8 +495,21 @@ public class LL {
         // head = deleteDuplicates(head);
         // head=oddEvenList(head);
 
-        head=allZerosOneTwos(head);
-        printt(head);
+        // head=allZerosOneTwos(head);
 
+        // head=reverseLinkListRecu(head);
+
+        // System.out.println(isPalindrome(head));
+
+        // Node ansi;
+        // head = convertArr2LL(arr);
+        // head2 = convertArr2LL(arr2);
+        // ansi= addTwoNumbers(head, head2);
+        // printt(ansi);
+
+        // head=addOne(head);
+
+        head = deleteNodeFromLL(head, 8);
+        printt(head);
     }
 }
