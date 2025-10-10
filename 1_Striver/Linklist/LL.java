@@ -379,40 +379,41 @@ public class LL {
     }
 
     // 445
-    public static Node addTwoNumbers(Node l1, Node l2) {
-        Node temp = l1;
-        Node temp2 = l2;
-        int num1 = 0;
-        int num2 = 0;
-        while (temp != null) {
-            num1 = num1 * 10 + temp.val;
-            temp = temp.next;
-        }
-        while (temp2 != null) {
-            num2 = num2 * 10 + temp2.val;
-            temp2 = temp2.next;
-        }
-        int ans = num1 + num2;
-        System.out.println(num1);
-        System.out.println(num2);
-        System.out.println(ans);
+    // public static Node addTwoNumbers(Node l1, Node l2) {
+    // Node temp = l1;
+    // Node temp2 = l2;
+    // int num1 = 0;
+    // int num2 = 0;
+    // while (temp != null) {
+    // num1 = num1 * 10 + temp.val;
+    // temp = temp.next;
+    // }
+    // while (temp2 != null) {
+    // num2 = num2 * 10 + temp2.val;
+    // temp2 = temp2.next;
+    // }
+    // int ans = num1 + num2;
+    // System.out.println(num1);
+    // System.out.println(num2);
+    // System.out.println(ans);
 
-        if (ans == 0)
-            return new Node(0);
+    // public Node addTwoNumbers(Node l1, Node l2) {
+        if (l1 == null && l2 == null)
+            return null;
+        if (l1 == null)
+            return l2;
+        if (l2 == null)
+            return l1;
+            int carry=helperFunc(l1,l2);
+            if(carry==1){
+                Node newNode = new Node(1);
+                newNode.next=l1;
+            }
 
-        // Convert to string to easily extract digits
-        String s = String.valueOf(ans);
-        Node head = new Node(s.charAt(0) - '0');
-        Node current = head;
 
-        for (int i = 1; i < s.length(); i++) {
-            current.next = new Node(s.charAt(i) - '0');
-            current = current.next;
-        }
-        return head;
     }
 
-    public static int addHelper(Node temp) {
+    public static int addHelper(Node temp){
         if (temp == null) {
             return 1;
         }
@@ -425,7 +426,7 @@ public class LL {
         return 1;
     }
 
-    public static Node addOne(Node head) {
+    public static Node addOne(Node head){
         int carry = addHelper(head);
         if (carry == 1) {
             Node newNode = new Node(1);
@@ -437,15 +438,15 @@ public class LL {
 
     public static Node deleteNodeFromLL(Node head, int nodeVal) {
         Node temp = head;
-        if(head.next==null && head.val==nodeVal){
+        if (head.next == null && head.val == nodeVal) {
             return null;
         }
-        if(head.val==nodeVal){
+        if (head.val == nodeVal) {
             return head.next;
         }
         while (temp != null) {
             if (temp.next.val == nodeVal && temp.next.next == null) {
-                temp.next =null;
+                temp.next = null;
                 return head;
             }
             if (temp.next.val == nodeVal && temp.next.next != null) {
