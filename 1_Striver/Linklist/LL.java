@@ -356,6 +356,29 @@ public class LL {
         return newHead;
     }
 
+    //middle
+    public static Node findMiddle(Node head){
+        Node temp=head;
+        int count=0;
+        while (temp!=null) {
+            count++;
+            temp=temp.next;
+        }
+        if(count%2==0) {
+            count=(count/2)+1;
+        }else{
+            count=(count/2)+1;
+        }
+        temp=head;
+        while (temp!=null) {
+            count--;
+            temp=temp.next;
+            if(count==0){
+                return temp;
+            }
+        }
+    }
+
     public static boolean isPalindrome(Node head) {
         Node temp = head;
         Stack<Integer> s1 = new Stack<>();
@@ -411,7 +434,7 @@ public class LL {
             }
 
 
-    }
+    // }
 
     public static int addHelper(Node temp){
         if (temp == null) {
@@ -528,7 +551,9 @@ public class LL {
 
         // head=addOne(head);
 
-        head = deleteNodeFromLL(head, 8);
+        // head = deleteNodeFromLL(head, 8);
+
+        head=findMiddle(head2);
         printt(head);
     }
 }
