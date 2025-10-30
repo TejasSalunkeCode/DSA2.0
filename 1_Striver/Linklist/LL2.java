@@ -73,15 +73,54 @@ public class LL2 {
         return head;
     }
 
+    private static Node firstNodeCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                slow = head;
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                System.out.println(slow.val);
+                return slow;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         int[] arr = { 3, 5, 2, 7, 8, 9 };
-        Node head = convertArr2LL(arr);
+                Node head = convertArr2LL(arr);
         // head=findMiddle(head);
         // System.out.println(findMiddle(head));
 
         // head=findMiddleUsing2Pointer(head);
         System.out.println(findMiddleUsing2Pointer(head));
         // printt(head);
+
+
+
+
+
+
+        Node n1 = new Node(3);
+        Node n2 = new Node(2);
+        Node n3 = new Node(0);
+        Node n4 = new Node(-4);
+
+        // Link them linearly
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+
+        // Create cycle: last node points to n2
+        n4.next = n2;
+        Node start = firstNodeCycle(n1);
+        System.out.println(firstNodeCycle(start));
     }
 
 }

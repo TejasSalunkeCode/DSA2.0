@@ -1,27 +1,9 @@
 import java.util.Arrays;
 
-public class leetcode_50 {
-    // public static void main(String[] args) {
-    //     double x = 2.00000, n = 10;
-    //     System.out.println(myPow(x, 10));
-    // }
+// package 360;
 
-    // static double myPow(double x, int n) {
-    //     double ans=1;
-    //       if (n < 0) {
-    //         x = 1 / x;
-    //         n = -n;
-    //     }
-    //     while (n!=0) {
-    //         ans=ans*x;
-    //         n--;
-    //     }
-    //     return ans;
-    // }
-
-
-
-     public static void main(String[] args) {
+public class rearrange {
+    public static void main(String[] args) {
         int[] arr= { 3, 8, 1, 4};
         int m = 6;
         System.out.println(rearrangeArray(arr, m));
@@ -43,3 +25,5 @@ public class leetcode_50 {
         return arr;
     }
 }
+ 
+
