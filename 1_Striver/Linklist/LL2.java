@@ -92,6 +92,93 @@ public class LL2 {
         return null;
     }
 
+    // public static Node getKthNode(Node temp,int k){
+    //     k-=1;
+    //     while (temp!=null && k > 0) {
+    //         k--;
+    //         temp=temp.next;
+    //     }
+    //     return temp;
+    // }
+
+    
+    //  public static Node reverseKGroup(Node head, int k) {
+    //     Node temp = head;
+    //     Node prevLast = null;
+    //     while (temp!=null) {
+    //         Node kThNode = getKthNode(temp, k);
+    //         if(kThNode==null){
+    //             if(prevLast){
+    //                 prevLast.next=temp;
+    //                 break;
+    //             }
+    //             Node nextNode = kThNode.next;
+    //             kThNode.next=null;
+    //             reverseLinklist(temp);
+    //             if(temp==head){
+    //                 head=kThNode;
+    //             }else{
+    //                 prevLast.next=kThNode;
+    //             }
+    //             prevLast=temp;
+    //             temp=nextNode;
+    //         }
+    //         return head;
+    //     }
+    // }
+    
+    public static Node getKthNode(Node temp, int k) {
+        k -= 1;
+        while (temp != null && k > 0) {
+            k--;
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public static Node reverseKGroup(Node head, int k) {
+        Node temp = head;
+        Node prevLast = null;
+
+        while (temp != null) {
+            Node kThNode = getKthNode(temp, k);
+            if (kThNode == null) { // Less than k nodes left
+                if (prevLast != null) {
+                    prevLast.next = temp;
+                }
+                break;
+            }
+
+            Node nextNode = kThNode.next;
+            kThNode.next = null;
+
+            // reverse the current k-group
+            Node newHead = reverseLinkedList(temp);
+
+            if (temp == head) {
+                head = newHead;
+            } else {
+                prevLast.next = newHead;
+            }
+
+            prevLast = temp;
+            temp = nextNode;
+        }
+
+        return head;
+    }
+
+    public static Node reverseLinkedList(Node head) {
+        Node prev = null, curr = head;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
     public static void main(String[] args) {
         int[] arr = { 3, 5, 2, 7, 8, 9 };
                 Node head = convertArr2LL(arr);
