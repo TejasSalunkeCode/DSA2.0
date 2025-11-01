@@ -73,5 +73,4 @@ public class leetcode_3217 {
 
 
 
-    // public Node modifiedList(int[] nums, Node head) {
       
