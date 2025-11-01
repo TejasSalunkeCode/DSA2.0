@@ -93,40 +93,39 @@ public class LL2 {
     }
 
     // public static Node getKthNode(Node temp,int k){
-    //     k-=1;
-    //     while (temp!=null && k > 0) {
-    //         k--;
-    //         temp=temp.next;
-    //     }
-    //     return temp;
+    // k-=1;
+    // while (temp!=null && k > 0) {
+    // k--;
+    // temp=temp.next;
+    // }
+    // return temp;
     // }
 
-    
-    //  public static Node reverseKGroup(Node head, int k) {
-    //     Node temp = head;
-    //     Node prevLast = null;
-    //     while (temp!=null) {
-    //         Node kThNode = getKthNode(temp, k);
-    //         if(kThNode==null){
-    //             if(prevLast){
-    //                 prevLast.next=temp;
-    //                 break;
-    //             }
-    //             Node nextNode = kThNode.next;
-    //             kThNode.next=null;
-    //             reverseLinklist(temp);
-    //             if(temp==head){
-    //                 head=kThNode;
-    //             }else{
-    //                 prevLast.next=kThNode;
-    //             }
-    //             prevLast=temp;
-    //             temp=nextNode;
-    //         }
-    //         return head;
-    //     }
+    // public static Node reverseKGroup(Node head, int k) {
+    // Node temp = head;
+    // Node prevLast = null;
+    // while (temp!=null) {
+    // Node kThNode = getKthNode(temp, k);
+    // if(kThNode==null){
+    // if(prevLast){
+    // prevLast.next=temp;
+    // break;
     // }
-    
+    // Node nextNode = kThNode.next;
+    // kThNode.next=null;
+    // reverseLinklist(temp);
+    // if(temp==head){
+    // head=kThNode;
+    // }else{
+    // prevLast.next=kThNode;
+    // }
+    // prevLast=temp;
+    // temp=nextNode;
+    // }
+    // return head;
+    // }
+    // }
+
     public static Node getKthNode(Node temp, int k) {
         k -= 1;
         while (temp != null && k > 0) {
@@ -179,20 +178,119 @@ public class LL2 {
         return prev;
     }
 
+    public static Node rotateRight(Node head, int k) {
+        if (head == null || head.next == null || k == 0)
+            return head;
+
+        Node temp = head;
+        int count = 1;
+
+        // Find length and make list circular
+        while (temp.next != null) {
+            count++;
+            temp = temp.next;
+        }
+        temp.next = head; // make circular
+
+        System.out.println(count + "hii");
+
+        k = k % count;
+        if (k == 0)
+            return head;
+
+        int taill = count - k;
+        System.out.println(k + "kk");
+
+        Node temp1 = head;
+        while (taill > 1) {
+            temp1 = temp1.next;
+            taill--;
+        }
+
+        head = temp1.next;
+        temp1.next = null;
+
+        System.out.println(temp1.val);
+        System.out.println(taill + "eee");
+
+        return head;
+    }
+
+    // public static Node rotateRight(Node head, int k) {
+    // Node temp = head;
+    // int count = 0;
+    // int taill;
+    // while (temp != null) {
+    // count++;
+    // temp = temp.next;
+    // if(temp.next==null){
+    // temp.next=head;
+    // count++;
+    // break;
+    // }
+    // }
+    // System.out.println(count + "hii");
+    // if (count < k) {
+    // if (k % count == 0) {
+    // return head;
+    // }
+    // int rotate = k % count;
+    // taill=count-rotate;
+    // System.out.println(rotate + "kk");
+    // }else{
+    // taill=count-k;
+    // }
+    // Node temp1=head;
+    // while (taill>0) {
+    // temp1=temp1.next;
+    // taill--;
+    // }
+    // head=temp1.next;
+    // temp1.next=null;
+    // System.out.println(temp1.val);
+    // System.out.println(taill+"eee");
+
+    // return head;
+    // }
+
+    public static Node mergeTwoLists(Node list1, Node list2) {
+        Node t1 = list1;
+        Node t2 = list2;
+        Node dummyNode = new Node(-1);
+        Node temp = dummyNode;
+        while (t1 != null && t2 != null) {
+            if (t1.val < t2.val) {
+                temp.next = t1;
+                temp = t1;
+                t1 = t1.next;
+            } else {
+                temp.next = t2;
+                temp = t2;
+                t2 = t2.next;
+            }
+        }
+        if (t1 != null)
+            temp.next = t1;
+        else
+            temp.next = t2;
+        return dummyNode.next;
+    }
+
+   
+
     public static void main(String[] args) {
-        int[] arr = { 3, 5, 2, 7, 8, 9 };
-                Node head = convertArr2LL(arr);
+        int[] arr = { 0, 1, 2 };
+        Node head = convertArr2LL(arr);
         // head=findMiddle(head);
         // System.out.println(findMiddle(head));
 
+        Node rotated = rotateRight(head, 4);
+        System.out.println(rotated);
+        printt(rotated);
+
         // head=findMiddleUsing2Pointer(head);
-        System.out.println(findMiddleUsing2Pointer(head));
+        // System.out.println(findMiddleUsing2Pointer(head));
         // printt(head);
-
-
-
-
-
 
         Node n1 = new Node(3);
         Node n2 = new Node(2);
@@ -207,7 +305,7 @@ public class LL2 {
         // Create cycle: last node points to n2
         n4.next = n2;
         Node start = firstNodeCycle(n1);
-        System.out.println(firstNodeCycle(start));
+        // System.out.println(firstNodeCycle(start));
     }
 
 }
