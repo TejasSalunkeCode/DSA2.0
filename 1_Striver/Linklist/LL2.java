@@ -1,3 +1,8 @@
+import java.util.PriorityQueue;
+import java.util.*;
+import java.util.Comparator;
+
+
 public class LL2 {
     private static class Node { // 🔹 made static
         int val;
@@ -276,17 +281,61 @@ public class LL2 {
         return dummyNode.next;
     }
 
-   
+    public static Node mergeTwoLists2(Node list1, Node list2) {
+        Node temp = list1;
+        Node temp2 = list2;
+        int count1 = 0, count2 = 0;
+        while (temp != null) {
+            count1++;
+            temp = temp.next;
+        }
+        while (temp2 != null) {
+            count2++;
+            temp2 = temp2.next;
+        }
+        int length = count1 + count2;
+        System.out.println(length + "lengthhh");
+        return temp;
+    }
+
+    public static Node mergeKLists(Node[] lists) {
+        PriorityQueue<Node> pq = new PriorityQueue<Node>(new Comparator<Node>() {
+            public int compare(Node a, Node b) {
+                return Integer.compare(a.val, b.val);
+            }
+        });
+
+        for (Node node : lists) {
+            if (node != null) pq.add(node);
+        }
+
+        Node dummy = new Node(-1);
+        Node tail = dummy;
+        while (!pq.isEmpty()) {
+            Node cur = pq.poll();
+            tail.next = cur;
+            tail = tail.next;
+            if (cur.next != null) pq.add(cur.next);
+        }
+
+        return dummy.next;
+    }
 
     public static void main(String[] args) {
-        int[] arr = { 0, 1, 2 };
+        int[] arr = { 1, 2, 4 };
+        int[] arr2 = { 1, 3, 5 };
         Node head = convertArr2LL(arr);
+        Node head2 = convertArr2LL(arr2);
+
+        Node ansHead = mergeTwoLists2(head, head2);
+        printt(ansHead);
+
         // head=findMiddle(head);
         // System.out.println(findMiddle(head));
 
-        Node rotated = rotateRight(head, 4);
-        System.out.println(rotated);
-        printt(rotated);
+        // Node rotated = rotateRight(head, 4);
+        // System.out.println(rotated);
+        // printt(rotated);
 
         // head=findMiddleUsing2Pointer(head);
         // System.out.println(findMiddleUsing2Pointer(head));
@@ -304,7 +353,7 @@ public class LL2 {
 
         // Create cycle: last node points to n2
         n4.next = n2;
-        Node start = firstNodeCycle(n1);
+        // Node start = firstNodeCycle(n1);
         // System.out.println(firstNodeCycle(start));
     }
 
