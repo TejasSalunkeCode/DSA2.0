@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "leetcode_3075",
+            "request": "launch",
+            "mainClass": "leetcode_3075",
+            "projectName": "DD_df685e4b"
+        }
+    ]
+}
