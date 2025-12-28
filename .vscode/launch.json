@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetocde_1351",
+            "request": "launch",
+            "mainClass": "leetocde_1351",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "Tree_Que",
             "request": "launch",
             "mainClass": "Tree_Que",
