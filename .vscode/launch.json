@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GFG",
+            "request": "launch",
+            "mainClass": "Graph.GFG",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Graph.Main",
