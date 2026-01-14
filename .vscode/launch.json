@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetcode_81",
+            "request": "launch",
+            "mainClass": "leetcode_81",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_80",
+            "request": "launch",
+            "mainClass": "leetcode_80",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_78",
+            "request": "launch",
+            "mainClass": "leetcode_78",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "GFG",
             "request": "launch",
             "mainClass": "Graph.GFG",
