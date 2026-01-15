@@ -2,36 +2,34 @@ import java.util.Arrays;
 
 public class leetcode_1283 {
     public static void main(String[] args) {
-        int[] nums = { 1,2,5,9 };
+        int[] nums = { 1, 2, 5, 9 };
         int threshold = 6;
         System.out.println(smallestDivisor(nums, threshold));
     }
 
-    public static int smallestDivisor(int[] nums, int threshold) {
-        Arrays.sort(nums);
-        int low = nums[0];
-        int high = nums[nums.length - 1];
-        int mid=0;
-        double ans = 0;
-        int j = 0;
-        for (j = low; j < high; j++) {
-            for (int i = 0; i < nums.length; i++) {
-                mid = (low + high) / 2;
-                ans = ans + Math.ceil((double) nums[i] / mid);
-            }
-            if(ans==threshold){
-                return j;
-            }
-            if(ans<threshold){
-                break;
-            }
-            if(ans>threshold){
-                low=mid;
-                mid=(low+high)/2;
-            }
-            ans=0;
+    public static int sumByD(int[]arr,int div){
+        int sum=0;
+        int n=arr.length;
+        for (int i = 0; i < n; i++) {
+            sum += Math.ceil((double) arr[i] / (double) div);
         }
-        return j;
+        return sum;
+    }
 
+    public static int smallestDivisor(int[] nums, int threshold) {
+        int low=1;
+        int high=Arrays.stream(nums).max().getAsInt();
+        System.out.println(high);
+
+        while (low<=high) {
+            int mid=(low+high)/2;
+
+            if(sumByD(nums, mid)<=threshold){
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return low;
     }
 }
