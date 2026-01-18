@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Kth_element",
+            "request": "launch",
+            "mainClass": "Kth_element",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "BookAllocation",
+            "request": "launch",
+            "mainClass": "BookAllocation",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_2211",
+            "request": "launch",
+            "mainClass": "leetcode_2211",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "leetcode_1011",
             "request": "launch",
             "mainClass": "leetcode_1011",
