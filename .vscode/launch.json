@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetcode_414",
+            "request": "launch",
+            "mainClass": "leetcode_414",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "recursionn",
+            "request": "launch",
+            "mainClass": "recursionn",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "leetcode_3658",
             "request": "launch",
             "mainClass": "leetcode_3658",
