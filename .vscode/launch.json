@@ -2,6 +2,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetcode_283",
+            "request": "launch",
+            "mainClass": "leetcode_283",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "rotatearr",
+            "request": "launch",
+            "mainClass": "rotatearr",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leftRotate",
+            "request": "launch",
+            "mainClass": "leftRotate",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "rotatee",
+            "request": "launch",
+            "mainClass": "rotatee",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "left_rotate",
+            "request": "launch",
+            "mainClass": "left_rotate",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_left_rotate",
+            "request": "launch",
+            "mainClass": "leetcode_left_rotate",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_189",
+            "request": "launch",
+            "mainClass": "leetcode_189",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "leetcode_414",
             "request": "launch",
             "mainClass": "leetcode_414",
