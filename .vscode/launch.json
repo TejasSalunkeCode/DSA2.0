@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetcode_18",
+            "request": "launch",
+            "mainClass": "leetcode_18",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_260",
+            "request": "launch",
+            "mainClass": "leetcode_260",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_3010",
+            "request": "launch",
+            "mainClass": "leetcode_3010",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "leetcode_1464",
             "request": "launch",
             "mainClass": "leetcode_1464",
