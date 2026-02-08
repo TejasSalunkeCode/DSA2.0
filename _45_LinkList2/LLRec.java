@@ -50,6 +50,8 @@ public class LLRec {
     tail=node;
     tail.next=null;
    }
+
+   
    
     public void display() {
         Node temp = head;
