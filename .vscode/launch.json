@@ -2,6 +2,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "strr",
+            "request": "launch",
+            "mainClass": "strr",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "subArr",
+            "request": "launch",
+            "mainClass": "subArr",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_152",
+            "request": "launch",
+            "mainClass": "leetcode_152",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "leetcode_493",
+            "request": "launch",
+            "mainClass": "leetcode_493",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
+            "name": "cntInversions",
+            "request": "launch",
+            "mainClass": "cntInversions",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "leetcode_2965",
             "request": "launch",
             "mainClass": "leetcode_2965",
