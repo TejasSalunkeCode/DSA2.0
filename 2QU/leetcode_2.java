@@ -49,6 +49,7 @@ public class leetcode_2 {
             int digit1 = (l1 != null) ? l1.val : 0;
             int digit2 = (l2 != null) ? l2.val : 0;
 
+            
             int sum = digit1 + digit2 + carry;
             int digit = sum % 10;
             carry = sum / 10;
