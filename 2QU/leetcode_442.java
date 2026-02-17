@@ -12,10 +12,12 @@ public class leetcode_442 {
         List<Integer> list = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
         int cnt = 0;
+
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(nums[i])) {
                 cnt += 1;
             }
+            
             map.put(nums[i], cnt++);
             System.out.println(cnt);
             if(cnt>1){
