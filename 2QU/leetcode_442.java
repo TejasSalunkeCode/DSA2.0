@@ -18,6 +18,7 @@ public class leetcode_442 {
                 cnt += 1;
             }
             
+            
             map.put(nums[i], cnt++);
             System.out.println(cnt);
             if(cnt>1){
