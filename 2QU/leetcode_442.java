@@ -14,6 +14,8 @@ public class leetcode_442 {
         int cnt = 0;
 
         for (int i = 0; i < nums.length; i++) {
+           
+           
             if (map.containsKey(nums[i])) {
                 cnt += 1;
             }
