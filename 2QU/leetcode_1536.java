@@ -1,44 +1,54 @@
-import java.util.Arrays;
-
 public class leetcode_1536 {
-    public static void main(String[] args) {
-        int[][] arr = { { 0, 0, 1 }, { 1, 1, 0 }, { 1, 0, 0 } };
-        System.out.println(minSwaps(arr));
-    }
 
     public static int minSwaps(int[][] grid) {
-        int cnt = 0;
-        int swaps = 0;
-        int[] arr = new int[grid.length];
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = grid[0].length - 1; j >= 0; j--) {
+        int n = grid.length;
+        int[] zeros = new int[n];
+
+        // Step 1: Count trailing zeros for each row
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = n - 1; j >= 0; j--) {
                 if (grid[i][j] == 0) {
-                    cnt++;
+                    count++;
                 } else {
                     break;
                 }
             }
-            arr[i] = cnt;
-            cnt = 0;
+            zeros[i] = count;
         }
-        System.out.println(Arrays.toString(arr));
-        int needzero = 0;
-        for (int i = 0; i < arr.length ; i++) {
-             needzero=arr.length-i-1;
-            for (int j = 0; j < arr.length; j++) {
-                if(arr[j]>=needzero){
-                    swaps=(swaps)+j-i;
-                    arr[j]=-1;
-                    break;
-                }else{
-                    if(j==arr.length-1){
-                        return -1;
-                    }
-                }
 
+        int swaps = 0;
+
+        // Step 2: Arrange rows
+        for (int i = 0; i < n; i++) {
+            int needed = n - i - 1;
+            int j = i;
+
+            // Find row with enough trailing zeros
+            while (j < n && zeros[j] < needed) {
+                j++;
+            }
+
+            // If no such row found
+            if (j == n) {
+                return -1;
+            }
+
+            // Bring row j to position i using adjacent swaps
+            while (j > i) {
+                int temp = zeros[j];
+                zeros[j] = zeros[j - 1];
+                zeros[j - 1] = temp;
+                swaps++;
+                j--;
             }
         }
 
         return swaps;
+    }
+
+    public static void main(String[] args) {
+        int[][] arr = { {0,0,1}, {1,1,0}, {1,0,0} };
+        System.out.println(minSwaps(arr));
     }
 }
