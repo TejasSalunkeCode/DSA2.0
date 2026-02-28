@@ -7,13 +7,14 @@ public class leetcdoe_1680 {
     }
 
     public static int concatenatedBinary(int n) {
-        String res="";
-        for (int i = 1; i <=n; i++) {
-            res=res+Integer.toBinaryString(i);
-        }
-        int finalRes=Integer.parseInt(res,2);
+       long res = 0;               
+        int mod = 1_000_000_007;   
 
-        System.out.println(res);
-        return finalRes;
+        for (int i = 1; i <= n; i++) {
+            int bits = Integer.toBinaryString(i).length();
+            res = ((res << bits) + i) % mod;            
+        }
+
+        return (int) res;  
     }
 }
