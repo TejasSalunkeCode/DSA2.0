@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "leetcode_1582",
+            "request": "launch",
+            "mainClass": "leetcode_1582",
+            "projectName": "DD_df685e4b"
+        },
+        {
+            "type": "java",
             "name": "leetcode_1545",
             "request": "launch",
             "mainClass": "leetcode_1545",
