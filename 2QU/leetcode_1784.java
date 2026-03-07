@@ -15,13 +15,13 @@ public class leetcode_1784 {
             if (s.charAt(i) == '1') {
                 cnt1++;
             } else {
-                if(cnt1!=0){
+                if (cnt1 != 0) {
                     cnt2++;
-                    cnt1=0;
+                    cnt1 = 0;
                 }
             }
             i++;
-            if(i==s.length()-1 && s.charAt(s.length()-1)=='1'){
+            if (i == s.length() - 1 && s.charAt(s.length() - 1) == '1') {
                 cnt2++;
             }
             if (i >= s.length()) {
