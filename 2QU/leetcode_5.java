@@ -6,7 +6,7 @@ public class leetcode_5 {
 
     public static String longestPalindrome(String s) {
         String str = s.substring(0, s.length());
-        if(s.length()==1){
+        if (s.length() == 1) {
             return s;
         }
         System.out.println(s.substring(0, 1));
@@ -16,12 +16,12 @@ public class leetcode_5 {
         for (int i = 0; i < s.length() - 1; i++) {
             for (int j = i + 1; j <= s.length(); j++) {
                 suString = s.substring(i, j);
-                if(isPalindrome(suString)){
-                if(suString.length()>max){
-                max=suString.length();
-                ans=suString;
-                }
-                System.out.println(ans);
+                if (isPalindrome(suString)) {
+                    if (suString.length() > max) {
+                        max = suString.length();
+                        ans = suString;
+                    }
+                    System.out.println(ans);
                 }
                 // System.out.println(suString);
                 suString = "";
