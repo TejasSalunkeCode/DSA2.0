@@ -8,6 +8,7 @@ public class leetcode_1727 {
             {1, 0, 1}
         };
 
+        
         int result = largestSubmatrix(grid);
         System.out.println("Largest Submatrix Area: " + result);
     }
