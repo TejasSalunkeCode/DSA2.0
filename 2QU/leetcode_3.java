@@ -5,6 +5,7 @@ public class leetcode_3 {
         String s = "jbpnbwwd";
         System.out.println(lengthOfLongestSubstring(s));
     }
+    
      public static int lengthOfLongestSubstring(String s) {
         if(s.length()==0){
             return 0;
