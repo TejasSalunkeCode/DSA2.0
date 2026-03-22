@@ -2,6 +2,7 @@
 public class leetcode_2 {
 
     public class ListNode {
+        
         int val;
         ListNode next;
 
