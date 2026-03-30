@@ -4,7 +4,7 @@ public class leetcode_2946 {
         int k = 4;
 
         System.out.println(areSimilar(mat, k));
-    }
+    } 
 
     public static boolean areSimilar(int[][] mat, int k) {
         int m=mat[0].length;
