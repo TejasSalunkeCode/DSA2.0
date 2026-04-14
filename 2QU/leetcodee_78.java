@@ -22,6 +22,9 @@ public class leetcodee_78 {
             return;
         }
 
+
+        
+
         // Include the current element
         list.add(nums[i]);
         solve(nums, list, i + 1, result);
