@@ -25,7 +25,7 @@ public class leetcodee_78 {
         // Include the current element
         list.add(nums[i]);
         solve(nums, list, i + 1, result);
-
+        System.out.println(list);
         // Backtrack (remove the last added element)
         list.remove(list.size() - 1);
 
