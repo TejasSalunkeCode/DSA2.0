@@ -2,6 +2,7 @@ public class leetcode_2540b {
     public static void main(String[] args) {
         int[] nums1 = {4,12,13 };
         int nums2[] = { 2,4};
+        
         System.out.println(getCommon(nums1, nums2));
     }
 
